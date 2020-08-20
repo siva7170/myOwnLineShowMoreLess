@@ -40,13 +40,15 @@
 
             body.removeChild(_node);
         }
-        //console.log($that.height()/$thatLineHeight);
+        let $thatLineHeightInPx=parseInt($thatLineHeight);
+        let restrictedLine=parseInt(data.settings.showLessLine);
+        console.log($thatLineHeightInPx,restrictedLine);
 
         let currentState=(data.settings.lessAtInitial)?'less':'more';
-        let restrictedLine=parseInt(data.settings.showLessLine);
+
         if(data.settings.lessAtInitial){
             $that.css({
-                'max-height':($thatLineHeight*restrictedLine)+'px',
+                'max-height':($thatLineHeightInPx*restrictedLine)+'px',
                 'overflow':'hidden',
                 'position':'relative',
             });
@@ -102,7 +104,7 @@
             else{
                 currentState='less';
                 $that.css({
-                    'max-height':($thatLineHeight*restrictedLine)+'px',
+                    'max-height':($thatLineHeightInPx*restrictedLine)+'px',
                     'overflow':'hidden',
                     'position':'relative'
                 });
@@ -153,7 +155,7 @@
                                 settings: settings
                             });
 
-                        var $this2 = $(this);
+                        var $this2 = $(this)
                         var data2 = $this.data(pluginName);
 
                         initShowMoreLess.call($this2, data2);

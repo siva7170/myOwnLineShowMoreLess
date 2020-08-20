@@ -100,6 +100,9 @@
                     'display':'inline-block',
                     'cursor':'pointer'
                 });
+                if(data.settings.lessAtInitial && !data.settings.showLessAfterMore){
+                    $span.remove();
+                }
             }
             else{
                 currentState='less';
